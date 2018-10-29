@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--数据库的JDBC驱动的jar包路径-->
+    <classPathEntry location="C:\Users\听音乐的酒\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+    <!--使用哪个数据库-->
+    <context id="context" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <!--是否生成注释-->
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--链接数据库的信息：用户名、密码、驱动、url-->
+        <jdbcConnection userId="root" password="root" driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/world?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成模型的包名和位置-->
+        <!--实体类的包名，工程名-->
+        <javaModelGenerator targetPackage="org.lanqiao.entity" targetProject=".">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件的包名和位置-->
+        <!--dao层接口实现类，工程名-->
+        <sqlMapGenerator targetPackage="org.lanqiao.mapper.impl" targetProject=".">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--客户端的生成:生成dao的包名和位置-->
+        <!--dao层的接口名，工程名-->
+        <javaClientGenerator targetPackage="org.lanqiao.mapper" type="XMLMAPPER" targetProject=".">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <!--生成规则，数据库表名，生成实体的名称-->
+        <table schema="gerenal" tableName="stu" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+    </context>
+</generatorConfiguration>
